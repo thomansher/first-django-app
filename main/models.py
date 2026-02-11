@@ -11,8 +11,7 @@ class Post(models.Model):
     published_at = models.DateTimeField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        if not self.published_at:
-            self.published_at = timezone.now()
+        self.published_at = timezone.now()
         super().save(*args, **kwargs)
 
     def __str__(self):
